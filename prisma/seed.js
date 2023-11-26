@@ -1,4 +1,6 @@
 import prisma from "../src/prismaClient.js";
+import passwordService from "../src/services/passwordService.js";
+
 
 const tweets = [
     { id: '0', author: 'Michael', text: 'Greyhounds are the fastest dog breed and can run at speeds of 40–45 mph.', imgUrl: ''},

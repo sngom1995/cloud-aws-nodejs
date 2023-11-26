@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import { PRIVATE_KEY, PUBLIC_KEY } from "../../keys.js";
+import { PRIVATE_KEY, PUBLIC_KEY } from "../../Keys.js";
 
 
 class TokenService {
@@ -18,7 +18,7 @@ class TokenService {
         tokenType: 'REFRESH_TOKEN',
       },
       PRIVATE_KEY,
-      { expiresIn: process.env.REFRESH_TOKEN_EXPIRY, algorithm: "RS256" }
+      { expiresIn: "20h", algorithm: "RS256" }
     );
     return { accessToken, refreshToken };
   }

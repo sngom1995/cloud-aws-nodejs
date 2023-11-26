@@ -1,11 +1,11 @@
 import express from "express";
-import passwordService from "../service/passwordService.js";
-import tokenService from "../service/tokenService.js";
-import userService from "../service/userService.js";
+import passwordService from "../services/passwordService.js";
+import tokenService from "../services/tokenService.js";
+import userService from "../services/userService.js";
 
-export const router = express.Router();
+const authRouter = express.Router();
 
-router.post("/token", async (req, res) => {
+authRouter.post("/token", async (req, res) => {
   try {
     const {email, password} = req.body
     const user = await userService.findByEmail(email);
@@ -23,7 +23,7 @@ router.post("/token", async (req, res) => {
   }
 });
 
-router.post("/refresh", async (req, res) => {
+authRouter.post("/refresh", async (req, res) => {
   try{
     const { refreshToken } = req.body
     const jwtPayload = tokenService.decodeToken(refreshToken)
@@ -38,3 +38,5 @@ router.post("/refresh", async (req, res) => {
     return res.status(500).send("Error occured")
   }
 });
+
+export default authRouter;
