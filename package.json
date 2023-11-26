@@ -1,0 +1,22 @@
+{
+  "name": "cloud-dev-nd-rds-exo",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "dev": "nodemon src/server.js"
+  },
+  "prisma": {
+    "seed": "node prisma/seed.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^5.6.0",
+    "express": "^4.18.2",
+    "nodemon": "^3.0.1",
+    "prisma": "^5.6.0"
+  }
+}
