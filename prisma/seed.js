@@ -22,6 +22,18 @@ async function main() {
             }
         })
     }
+    const { hashedPassword, salt } = await passwordService.hashPassword('password')
+    await prisma.user.upsert({
+      where: { email: 'test@email.com'},
+      update: {},
+      create: {
+        email: 'test@email.com',
+        hashedPassword,
+        salt,
+        firstName: 'Samba',
+        lastName: 'Ngom'
+      }
+    })
 }
 
 main()
