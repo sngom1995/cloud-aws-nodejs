@@ -1,9 +1,9 @@
 import express from "express";
-import tweetService from "../service/tweetService.js";
-export const router = express.Router();
+import tweetService from "../services/tweetsService.js";
+export const tweetsRouter = express.Router();
 
 // Get tweet by id
-router.get( "/tweets/:id", async ( req, res ) => {
+tweetsRouter.get( "/tweets/:id", async ( req, res ) => {
     let { id } = req.params;
 
     if ( !id ) {
@@ -20,7 +20,7 @@ router.get( "/tweets/:id", async ( req, res ) => {
 } );
 
 // Get list of tweets
-router.get( "/tweets/", async ( req, res ) => {
+tweetsRouter.get( "/tweets/", async ( req, res ) => {
   let { author } = req.query;
   
   let tweetList;
@@ -35,7 +35,7 @@ router.get( "/tweets/", async ( req, res ) => {
 } );
 
 // Create a tweet
-router.post( "/tweets/", async ( req, res ) => {
+tweetsRouter.post( "/tweets/", async ( req, res ) => {
     // destruct request body
     let { author, text, imgUrl } = req.body;
 
